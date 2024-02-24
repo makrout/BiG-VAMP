@@ -6,13 +6,8 @@ This repository contains the Matlab code of the algorithm proposed in the paper:
 ## Abstract
 We introduce the bilinear generalized vector approximate message passing (BiG-VAMP) algorithm which jointly recovers two matrices $\boldsymbol{U}$ and $\boldsymbol{V}$ from their noisy product through a probabilistic  observation model. BiG-VAMP provides computationally efficient approximate implementations of both max-sum and sum-product loopy belief propagation (BP). We show how the proposed BiG-VAMP recovers different types of structured matrices and overcomes the fundamental limitations of other state-of-the-art techniques to the bilinear recovery problem, such as BiG-AMP, BAd-VAMP and LowRAMP. In essence, BiG-VAMP applies to a broader class of practical applications which involve  a general form of structured matrices. For the sake of theoretical performance prediction, we also conduct a state evolution (SE) analysis of the proposed algorithm  and show its consistency with the asymptotic empirical  mean-squared error (MSE). Numerical results on various applications such as matrix factorization, dictionary learning, and matrix completion demonstrate unambiguously the effectiveness of the proposed BiG-VAMP algorithm and its superiority over state-of-the-art algorithms. Using the developed SE framework, we also examine the phase transition diagrams of the matrix completion problem, thereby unveiling a low detectability region corresponding to the low signal-to-noise ratio (SNR) regime.
 
-## Important facts
-- If either $\boldsymbol{U}$ or $\boldsymbol{V}$ is known, BiG-VAMP coincides with the multiple measurement vectors setting of the [VAMP](https://arxiv.org/abs/1610.03082) algorithm.
-- The BiG-VAMP algorithm outperforms the [BiG-AMP](https://arxiv.org/abs/1310.2632) algorithm for discrete-valued priors (e.g., binary priors).
-- For benchmarking purposes, the value of the damping parameter should be tuned depending on the problem dimension (i.e., n, m, and r), the priors on $\boldsymbol{U}$ and $\boldsymbol{V}$, and the non-linearity parameters (e.g., selection percentage in matrix completion).
-
 ## Repository Structure
-This repository contains three folders:
+This repository contains four folders:
   - **Bi-VAMP**: it contains the code of Bi-VAMP algorithm solving the noisy matrix factorization problem whose observation model is $\boldsymbol{Y}~ =~ \boldsymbol{U}\boldsymbol{V}^{\top} + \boldsymbol{W}$. This folder has two files:
     * *Bi-VAMP.m*: the file containing the algorithmic steps of BiG-VAMP.
     * *Parameters.m*: the file defining the parameters of the BiG-VAMP simulation.
@@ -20,6 +15,7 @@ This repository contains three folders:
     * *Bi-VAMP-MC.m*: the file containing the algorithmic steps of BiG-VAMP for matrix completion (BiG-VAMP-MC).
     * *Parameters.m*: the file defining the parameters of the BiG-VAMP-MC simulation.
 - **functions**: it contains specific functions called by Bi-VAMP and/or BiG-VAMP-MC.
+- **bigamp-package**: it contains the code of the [BiG-AMP](https://arxiv.org/abs/1310.2632) algorithm from the [GAMPMATLAB](https://sourceforge.net/projects/gampmatlab/) package.
 
 ## Running Experiments
 #### Key Parameters
@@ -52,7 +48,11 @@ running time = 28.550352
 nrmse = 0.018408 
 running time = 1.105868
 ```
-
+## Important facts
+- If either $\boldsymbol{U}$ or $\boldsymbol{V}$ is known, BiG-VAMP coincides with the multiple measurement vectors setting of the [VAMP](https://arxiv.org/abs/1610.03082) algorithm.
+- The BiG-VAMP algorithm outperforms the [BiG-AMP](https://arxiv.org/abs/1310.2632) algorithm for discrete-valued priors (e.g., binary priors).
+- For benchmarking purposes, the value of the damping parameter should be tuned depending on the problem dimension (i.e., n, m, and r), the priors on $\boldsymbol{U}$ and $\boldsymbol{V}$, and the non-linearity parameters (e.g., selection percentage in matrix completion).
+  
 ## Citing the paper (bib)
 
 If you make use of our code, please make sure to cite our paper:
