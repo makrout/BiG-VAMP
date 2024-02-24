@@ -37,9 +37,22 @@ The parameters of Bi-VAMP and BiG-VAMP-MC are summarized in the object `Paramete
 | beta    | temperature parameter  |
 | seed    | seed for reproducibility  |
 #### Entry Points
-- To run the Bi-VAMP, execute the file `main_linear.m`
-- To run the BiG-VAMP for matrix completion, execute the file `main_MC.m`
-  
+- To run Bi-VAMP, run the file `main_linear.m`
+- To run BiG-VAMP for matrix completion, run the file `main_MC.m`
+- To run BiG-VAMP vs. BiG-AMP for matrix completion, run the file `main_BiGAMP_vs_BiGVAMP_MC_binary_prior.m`. The output should be
+'''
+Running BiG-AMP and BiG-VAMP with:
+A binary {-1, 1} and X Gaussian(0,1)
+
+===== Starting BiG-AMP =====
+nrmse = 0.355609 
+running time = 28.550352 
+
+===== Starting BiG-VAMP =====
+nrmse = 0.018408 
+running time = 1.105868
+'''
+
 ## Citing the paper (bib)
 
 If you make use of our code, please make sure to cite our paper:
