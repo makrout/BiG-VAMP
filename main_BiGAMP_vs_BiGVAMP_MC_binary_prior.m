@@ -159,3 +159,21 @@ nrmse_bigvamp = sqrt(mean((A*X - Ap*Xp').^2,'all')/mean((A*X).^2,'all'));
 fprintf(1,'nrmse = %f \n', nrmse_bigvamp);
 
 fprintf(1,'running time = %f \n', tBiVGAMP);
+
+%% Plot estimate vs true matrices
+% plot the first 100 estimated elements against the true ones
+Z_flat = reshape(A*X,1,[]);
+Zp_flat = reshape(Ap*Xp',1,[]);
+Zhat_flat = reshape(Ahat*Xhat,1,[]);
+
+subplot(2,1,1);
+stem(Z_flat(1:100));
+hold on;
+stem(Zp_flat(1:100), '--');
+title('BiG-VAMP: $\mathbf{AX}$ vs $\widehat{\mathbf{A}}\widehat{\mathbf{X}}$', 'interpreter','latex');
+
+subplot(2,1,2);
+stem(Z_flat(1:100));
+hold on;
+stem(Zhat_flat(1:100), '--');
+title('BiG-AMP: $\mathbf{AX}$ vs $\widehat{\mathbf{A}}\widehat{\mathbf{X}}$', 'interpreter','latex');
