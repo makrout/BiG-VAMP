@@ -21,5 +21,4 @@ function params = Parameters()
        params.prior_u_option = struct('rho', 0.05); % sparsity rate for Bernoulli-Gauss       
        params.prior_v_option = struct('rho', 0.05); % sparsity rate for Bernoulli-Gauss
        params.beta = 1;
-       params.seed = 12345;
 end

@@ -22,8 +22,8 @@ This repository contains four folders:
 The parameters of Bi-VAMP and BiG-VAMP-MC are summarized in the object `Parameters` and are summarized below:
 | Name &nbsp; &nbsp; &nbsp; &nbsp; | Description | 
 | :---         |             :--- |
-| nb_iter         |     max number of iterations      |  
-| conv_criterion         |     convergence criterion      |  
+| nb_iter         |     max number of iterations      |
+| conv_criterion         |     convergence criterion      |
 | damping     | damping coefficient   | 
 | prior_u     | prior on the matrix U   | 
 | prior_v   | prior on the matrix V     | 
@@ -35,18 +35,17 @@ The parameters of Bi-VAMP and BiG-VAMP-MC are summarized in the object `Paramete
 #### Entry Points
 - To run Bi-VAMP, execute the file `main_linear.m`
 - To run BiG-VAMP for matrix completion, execute the file `main_MC.m`
-- To run BiG-VAMP vs. BiG-AMP for matrix completion, execute the file `main_BiGAMP_vs_BiGVAMP_MC_binary_prior.m`. The output in the Matlab console should be:
+- To run BiG-VAMP vs. BiG-AMP for matrix completion, execute the file `main_BiGAMP_vs_BiGVAMP_MC_binary_prior.m`. The output in the Matlab console after 100 Monte Carlo simulations should be:
 ```
 Running BiG-AMP and BiG-VAMP with:
 A binary {-1, 1} and X Gaussian(0,1)
 
-===== Starting BiG-AMP =====
-nrmse = 0.355609 
-running time = 28.550352 
-
-===== Starting BiG-VAMP =====
-nrmse = 0.018408 
-running time = 1.105868
+=============== Results of BiG-AMP ===============
+nrmse BiG-AMP = 0.601415 (+/- 0.013788)
+Running time BiG-AMP = 788.602854 (+/- 112.390760)
+=============== Results of BiG-VAMP ===============
+nrmse BiG-VAMP = 0.122554 (+/- 0.045154)
+Running time BiG-VAMP = 29.316404 (+/- 37.978760)
 ```
 ## Important facts
 - If either $\boldsymbol{U}$ or $\boldsymbol{V}$ is known, BiG-VAMP coincides with the multiple measurement vectors setting of the [VAMP](https://arxiv.org/abs/1610.03082) algorithm.

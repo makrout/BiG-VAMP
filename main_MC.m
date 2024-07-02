@@ -7,7 +7,7 @@ addpath('BiG-VAMP-MC/');
 
 % size of the matrices U (nxr) and V^T (mxr)
 n=1000;
-m=1000;
+m=500;
 r=10;
 
 % SNR level in dB
@@ -15,17 +15,13 @@ SNR_dB = 20;
 
 % parameter object contaning the experiment's parameters
 params = Parameters();
+params.damping = 0.5;
 
-% fix the seed if needed
-if params.seed
-    rng(params.seed);
-end
-
-fprintf(1,'Generate U and V with n=%d, m=%d, and r=%d\n',m,n,r);
+fprintf(1,'Generate U and V with n=%d, m=%d, and r=%d\n',n,m,r);
 
 % set groundtruth value of U according to its prior
 switch     params.prior_u
-  case    {'Gauss'}  
+  case    {'Gauss'}
     U = randn(n,r);
   case    {'Binary'} 
     U = 2*randi(2,n,r)-3;
